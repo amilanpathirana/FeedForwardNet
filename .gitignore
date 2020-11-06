@@ -1,0 +1,5 @@
+.vs/
+/FeedForwardNet/FeedForwardNet/env/
+/FeedForwardNet/FeedForwardNet/data/
+/FeedForwardNet/*.sln
+/FeedForwardNet/FeedForwardNet/*.pyproj
