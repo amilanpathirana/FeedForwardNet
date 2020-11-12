@@ -60,10 +60,10 @@ class FFNet(nn.Module):
         self.l2=nn.Linear(hidden_size,output_size)
 
     def forward(self,x):
-        out=self.l1(x)
-        out=self.relu(out)
-        out=self.l2(out)
-        return out
+        out1=self.l1(x)
+        out2=self.relu(out1)+out1
+        out3=self.l2(out2)
+        return out3
 
 
 model=FFNet(input_size,output_size,hidden_size)
