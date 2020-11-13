@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 device=torch.device("cpu")
 
 input_size=784
-hidden_size=100
+hidden_size=500
 output_size=10
 num_epochs=2
 batch_size=100
@@ -50,19 +50,34 @@ for i in range(6):
 #plt.show()
 
 
+class MyRelu(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.myrelu1=nn.ReLU()
+       
+    def forward(self, x):
+        out1=self.myrelu1(x)
+        return out1
+
+
+
 
 
 class FFNet(nn.Module):
     def __init__(self,input_size,output_size, hidden_size):
         super(FFNet,self).__init__()
         self.l1=nn.Linear(input_size,hidden_size)
-        self.relu=nn.ReLU()
         self.l2=nn.Linear(hidden_size,output_size)
+        self.relu2=MyRelu()
+        
+        
+        
 
     def forward(self,x):
         out1=self.l1(x)
-        out2=self.relu(out1)+out1
+        out2=self.relu2(out1)
         out3=self.l2(out2)
+       
         return out3
 
 
